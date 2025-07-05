@@ -12,12 +12,21 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
 import { HttpClientModule } from '@angular/common/http';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import { TaskForm } from './task-form/task-form';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
     App,
     TaskList,
-    TaskTile
+    TaskTile,
+    TaskForm
   ],
   imports: [
     BrowserModule,
@@ -26,7 +35,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatProgressBarModule,
     MatCardModule,
     MatChipsModule,
-    HttpClientModule 
+    HttpClientModule ,
+    MatIconModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+     MatInputModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

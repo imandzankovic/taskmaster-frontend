@@ -1,5 +1,12 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { Task  as TaskModel} from '../models/task.model';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { Task as TaskModel } from '../models/task.model';
 
 @Component({
   selector: 'app-task-tile',
@@ -8,9 +15,8 @@ import { Task  as TaskModel} from '../models/task.model';
   styleUrl: './task-tile.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TaskTile implements OnInit{
-
- @Input() task!: TaskModel;  // receiving task from parent
+export class TaskTile implements OnInit {
+  @Input() task!: TaskModel; // receiving task from parent
 
   @Output() selected = new EventEmitter<TaskModel>();
 
@@ -18,7 +24,12 @@ export class TaskTile implements OnInit{
     this.selected.emit(this.task);
   }
 
-ngOnInit(){
- 
-}
+  ngOnInit() {}
+
+  updateTask(arg0: TaskModel) {
+    throw new Error('Method not implemented.');
+  }
+  deleteTask(arg0: number) {
+    throw new Error('Method not implemented.');
+  }
 }

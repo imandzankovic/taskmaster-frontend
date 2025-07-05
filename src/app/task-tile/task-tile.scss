@@ -1,4 +1,11 @@
-.example-card{
-    width: 18rem;
-    height: 14rem;
+.example-card {
+  width: 18rem;
+  height: 14rem;
+}
+.actions-cell button:first-child {
+  margin-right: 20px;
+}
+.actions-cell {
+  padding-left: 10rem;
+  padding-top: 2rem;
 }

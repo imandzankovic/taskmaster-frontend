@@ -1,0 +1,37 @@
+<div class="mat-dialog-content modal-panel">
+  <form [formGroup]="taskForm" (ngSubmit)="handleSubmit()" class="task-form">
+
+    <h2 mat-dialog-title>
+      {{ formType === 'UPDATE' ? 'Update Task' : 'Add New Task' }}
+    </h2>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Task Name</mat-label>
+      <input matInput formControlName="name" required />
+      <mat-error *ngIf="taskForm.get('name')?.invalid && taskForm.get('name')?.touched">
+        Task name is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Task Description</mat-label>
+      <textarea matInput formControlName="description" rows="3"></textarea>
+    </mat-form-field>
+
+    <!-- <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Due Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dueDate" required />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="taskForm.get('dueDate')?.invalid && taskForm.get('dueDate')?.touched">
+        Due date is required.
+      </mat-error>
+    </mat-form-field> -->
+
+    <div class="mat-dialog-actions actions-row">
+      <button mat-button color="warn" type="button" (click)="handleCancel()">Cancel</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">Submit</button>
+    </div>
+
+  </form>
+</div>

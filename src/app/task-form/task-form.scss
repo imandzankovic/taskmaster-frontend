@@ -1,0 +1,34 @@
+::ng-deep .mat-dialog-container {
+  max-width: 800px !important;
+  /* wider standard width */
+  width: 200vw !important;
+  /* responsive width: 90% of viewport */
+  padding: 0 !important;
+  /* remove default padding so your panel padding works */
+  border-radius: 12px !important;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
+  background: #fff !important;
+  /* ensure bright background */
+}
+
+.modal-panel {
+  padding: 2rem;
+  width: 30rem;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.actions-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
