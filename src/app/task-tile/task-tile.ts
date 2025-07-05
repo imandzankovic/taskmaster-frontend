@@ -7,7 +7,9 @@ import {
   Output,
 } from '@angular/core';
 import { Task as TaskModel } from '../models/task.model';
-
+import { MatDialog } from '@angular/material/dialog';
+import { TaskForm } from '../task-form/task-form';
+import { TaskService } from '../task-service';
 @Component({
   selector: 'app-task-tile',
   standalone: false,
@@ -17,19 +19,35 @@ import { Task as TaskModel } from '../models/task.model';
 })
 export class TaskTile implements OnInit {
   @Input() task!: TaskModel; // receiving task from parent
-
   @Output() selected = new EventEmitter<TaskModel>();
 
+  formType: 'CREATE' | 'UPDATE' = 'CREATE';
+
+  constructor(private dialog: MatDialog, private taskService: TaskService) {}
   onClick() {
     this.selected.emit(this.task);
   }
 
   ngOnInit() {}
 
-  updateTask(arg0: TaskModel) {
-    throw new Error('Method not implemented.');
+  updateTask(task: TaskModel) {
+    this.formType = 'UPDATE';
+
+    const dialogRef = this.dialog.open(TaskForm, {
+      data: { currentTask: task, formType: this.formType },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'SUBMIT') {
+        console.log('success');
+      }
+    });
   }
-  deleteTask(arg0: number) {
-    throw new Error('Method not implemented.');
+
+  deleteTask(id: number) {
+    this.taskService.deleteTask(id).subscribe({
+      next: () => console.log('Task deleted'),
+      error: (err) => console.error('Delete failed', err),
+    });
   }
 }

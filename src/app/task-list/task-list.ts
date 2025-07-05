@@ -13,7 +13,6 @@ import { TaskForm } from '../task-form/task-form';
 })
 export class TaskList implements OnInit {
 
-
   tasks: TaskModel[] = [];
   @Output() taskSelected = new EventEmitter<TaskModel>();
   formType: 'CREATE' | 'UPDATE' = 'CREATE';

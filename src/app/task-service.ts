@@ -14,7 +14,7 @@ export class TaskService {
   
    constructor(private httpClient : HttpClient) {}
 
-    //getTasks
+    
     
   getTasks(): Observable<TaskModel[]> {
     return this.httpClient.get<TaskModel[]>(`${BASE_URL}/tasks`).pipe(
@@ -29,12 +29,12 @@ export class TaskService {
   }
 
   updateTask(task: TaskModel): Observable<TaskModel> {
-    return this.httpClient.put<TaskModel>(`${BASE_URL}/tasks/{task.id}`, task).pipe(
+    return this.httpClient.put<TaskModel>(`${BASE_URL}/tasks/${task.id}`, task).pipe(
       tap(() => this.getTasks().subscribe()) // refresh list after update
     );
   }
 
-  //deleteTask
+
   deleteTask(id: number) {
    return this.httpClient.delete(`${BASE_URL}/tasks/${id}`).pipe(
       tap(() => this.getTasks().subscribe()) // refresh after update
