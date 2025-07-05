@@ -1,0 +1,6 @@
+
+<div *ngFor="let task of tasks" class="grid-view">
+<app-task-tile [task]="task"
+    (selected)="onTaskSelected($event)">
+</app-task-tile>
+</div>
