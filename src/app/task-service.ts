@@ -1,24 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { Task  as TaskModel} from './models/task.model';
+import { Task as TaskModel } from './models/task.model';
+import { Subtask as SubtaskModel } from './models/subtask.model';
 
 const BASE_URL = 'http://localhost:8080/api';
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
-
-   private tasksSubject = new BehaviorSubject<TaskModel[]>([]);
+  private tasksSubject = new BehaviorSubject<TaskModel[]>([]);
   tasks$ = this.tasksSubject.asObservable();
-  
-   constructor(private httpClient : HttpClient) {}
 
-    
-    
+  constructor(private httpClient: HttpClient) {}
+
   getTasks(): Observable<TaskModel[]> {
-    return this.httpClient.get<TaskModel[]>(`${BASE_URL}/tasks`).pipe(
-      tap(tasks => this.tasksSubject.next(tasks))
+    return this.httpClient
+      .get<TaskModel[]>(`${BASE_URL}/tasks`)
+      .pipe(tap((tasks) => this.tasksSubject.next(tasks)));
+  }
+
+  getSubtasksByTaskId(id: number) {
+    return this.httpClient.get<SubtaskModel[]>(
+      `${BASE_URL}/subtasks/task/${id}`
     );
   }
 
@@ -29,16 +33,16 @@ export class TaskService {
   }
 
   updateTask(task: TaskModel): Observable<TaskModel> {
-    return this.httpClient.put<TaskModel>(`${BASE_URL}/tasks/${task.id}`, task).pipe(
-      tap(() => this.getTasks().subscribe()) // refresh list after update
-    );
+    return this.httpClient
+      .put<TaskModel>(`${BASE_URL}/tasks/${task.id}`, task)
+      .pipe(
+        tap(() => this.getTasks().subscribe()) // refresh list after update
+      );
   }
 
-
   deleteTask(id: number) {
-   return this.httpClient.delete(`${BASE_URL}/tasks/${id}`).pipe(
+    return this.httpClient.delete(`${BASE_URL}/tasks/${id}`).pipe(
       tap(() => this.getTasks().subscribe()) // refresh after update
     );
   }
-
 }

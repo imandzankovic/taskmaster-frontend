@@ -1,0 +1,44 @@
+.table-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.task-details {
+  background: #f5f5f5;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+}
+
+.task-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+  color: #34608b; 
+}
+
+.task-desc {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+.custom-task-table {
+  width: 100%;
+  min-width: 52%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mat-header-cell {
+  font-weight: 200;
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+  color: #34608b;
+}
+
+.mat-cell {
+  font-size: 1rem;
+  color: #333;
+}
