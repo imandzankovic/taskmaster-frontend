@@ -11,6 +11,7 @@ import { TaskTile } from './task-tile/task-tile';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatToolbarModule,
     MatProgressBarModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
+    HttpClientModule 
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

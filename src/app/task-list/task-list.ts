@@ -1,5 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { Task  as TaskModel} from '../models/task.model';
+import { Observable } from 'rxjs';
+import { TaskService } from '../task-service';
 
 @Component({
   selector: 'app-task-list',
@@ -9,34 +11,17 @@ import { Task  as TaskModel} from '../models/task.model';
 })
 export class TaskList implements OnInit{
 
+   private taskService = inject(TaskService);
+   
   tasks: TaskModel[]= []
+  tasks$!: Observable<TaskModel[]>;
  @Output() taskSelected = new EventEmitter<TaskModel>();
 
 
   ngOnInit(){
-    this.tasks=[ {
-        id: 1,
-        name: "Task 1",
-        description: "Description 2",
-        completed: false,
-        subtasks: []
-    },
-    {
-        id: 2,
-        name: "Task 2",
-        description: "Description 2",
-        completed: false,
-        subtasks: []
-    },
-     {
-        id: 3,
-        name: "Task 3",
-        description: "Description 3",
-        completed: true,
-        subtasks: []
-    }
-
-  ]
+    this.taskService.getTasks().subscribe(res=>{
+      this.tasks = res;
+    })
   }
 
    onTaskSelected(task: TaskModel) {
