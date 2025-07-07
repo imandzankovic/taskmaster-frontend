@@ -1,7 +1,5 @@
-export interface Subtask {
-  id: number;
-  name: string;
-  description: string;
-  completed: boolean;
-  dueDate: Date;
+import { BaseTask } from "./todo.model";
+
+export interface Subtask extends BaseTask{
+  dueDate?: Date;
 }

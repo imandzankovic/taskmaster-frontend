@@ -1,9 +1,6 @@
 import { Subtask } from './subtask.model';
+import { BaseTask } from './todo.model';
 
-export interface Task {
-  id: number;
-  name: string;
-  description: string;
-  completed: boolean;
-  subtasks: Subtask[];
+export interface Task extends BaseTask {
+  subtasks?: Subtask[];
 }
