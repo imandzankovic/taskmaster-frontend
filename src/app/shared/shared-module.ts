@@ -19,6 +19,7 @@ import { MatTableModule } from '@angular/material/table';
 import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Sidenav } from './sidenav/sidenav';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [Sidenav],
@@ -42,6 +43,7 @@ import { Sidenav } from './sidenav/sidenav';
     MatListModule,
     MatMenuModule,
     MatTabsModule,
+    MatCheckboxModule
   ],
   exports: [
     Sidenav,
@@ -63,6 +65,7 @@ import { Sidenav } from './sidenav/sidenav';
     MatListModule,
     MatMenuModule,
     MatTabsModule,
+    MatCheckboxModule
   ]
 })
 export class SharedModule { }
