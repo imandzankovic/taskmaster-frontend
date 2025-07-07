@@ -6,10 +6,10 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { Task as TaskModel } from '../models/task.model';
+import { Task as TaskModel } from '../../models/task.model';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskForm } from '../task-form/task-form';
-import { TaskService } from '../task-service';
+import { TaskService } from '../../task-service';
 import { Router } from '@angular/router';
 
 @Component({

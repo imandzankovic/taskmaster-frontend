@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TaskDetails } from './task-details/task-details';
-import { TaskList } from './task-list/task-list';
+import { TaskList } from './task/task-list/task-list';
+import { TaskDetails } from './task/task-details/task-details';
 
 const routes: Routes = [
   { path: 'task/:id', component: TaskDetails },

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TaskService } from '../task-service';
-import { Subtask as SubtaskModel } from '../models/subtask.model';
-import { Task as TaskModel } from '../models/task.model';
+
 import { MatTableDataSource } from '@angular/material/table';
+import { TaskService } from '../../task-service';
+import { Task as TaskModel } from '../../models/task.model';
+import { Subtask as SubtaskModel } from '../../models/subtask.model';
 
 @Component({
   selector: 'app-task-details',

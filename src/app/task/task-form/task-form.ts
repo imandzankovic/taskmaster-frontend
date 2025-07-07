@@ -5,9 +5,10 @@ import {
   OnInit,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TaskService } from '../task-service';
+
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Task as TaskModel } from '../models/task.model';
+import { TaskService } from '../../task-service';
+import {Task as TaskModel} from '../../models/task.model'
 
 @Component({
   selector: 'app-task-form',

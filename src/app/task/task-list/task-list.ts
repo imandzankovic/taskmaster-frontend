@@ -1,7 +1,7 @@
 import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
-import { Task as TaskModel } from '../models/task.model';
+import { Task as TaskModel } from '../../models/task.model';
 import { Observable, tap } from 'rxjs';
-import { TaskService } from '../task-service';
+import { TaskService } from '../../task-service';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskForm } from '../task-form/task-form';
 
