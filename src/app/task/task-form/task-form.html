@@ -22,14 +22,6 @@
     <div class="full-width" *ngIf="formType === 'UPDATE'">
       <mat-label>Status</mat-label>
       <mat-checkbox formControlName="completed">Done</mat-checkbox>
-      <mat-error
-        *ngIf="
-          taskForm.get('completed')?.invalid &&
-          taskForm.get('completed')?.touched
-        "
-      >
-        Status is required.
-      </mat-error>
     </div>
 
     <div class="mat-dialog-actions actions-row">
