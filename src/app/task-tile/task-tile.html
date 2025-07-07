@@ -3,10 +3,16 @@
     <mat-card-title>{{ task.name }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <p>{{ task.description }}</p>
+    <p class="description">{{ task.description }}</p>
 
-    <mat-chip-set aria-label="Chihuahua traits">
-      <mat-chip>{{ task.completed }}</mat-chip>
+    <mat-chip-set aria-label="Task status">
+      <mat-chip
+        [ngClass]="task.completed ? 'done' : 'in-progress'"
+        class="status-chip"
+        selected
+      >
+        {{ task.completed ? "Done" : "In Progress" }}
+      </mat-chip>
     </mat-chip-set>
 
     <a mat-button color="primary" (click)="openDetails(task)">Details</a>
@@ -14,7 +20,7 @@
   <mat-card-footer class="example-card-footer">
     <div class="actions-cell">
       <button
-        mat-mini-fab
+        mat-icon-button
         color="warn"
         (click)="deleteTask(task.id)"
         matTooltip="Delete task"
@@ -22,8 +28,9 @@
       >
         <mat-icon>delete</mat-icon>
       </button>
+
       <button
-        mat-mini-fab
+        mat-icon-button
         color="primary"
         (click)="updateTask(task)"
         matTooltip="Edit task"

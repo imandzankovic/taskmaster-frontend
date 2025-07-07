@@ -1,7 +1,32 @@
-<div *ngFor="let task of tasks$ | async" class="grid-view">
-  <app-task-tile [task]="task" (selected)="onTaskSelected($event)">
-  </app-task-tile>
-</div>
+<mat-tab-group animationDuration="0ms">
+  <mat-tab label="All Tasks">
+    <div *ngFor="let task of tasks$ | async" class="grid-view">
+      <app-task-tile [task]="task" (selected)="onTaskSelected($event)">
+      </app-task-tile>
+    </div>
+  </mat-tab>
+  <mat-tab label="In Progress">
+    <ng-container *ngIf="tasks$ | async as filteredTasks">
+      <div *ngFor="let task of filteredTasks" class="grid-view">
+        <ng-container *ngIf="!task.completed">
+          <app-task-tile [task]="task" (selected)="onTaskSelected($event)">
+          </app-task-tile>
+        </ng-container>
+      </div>
+    </ng-container>
+  </mat-tab>
+  <mat-tab label="Done">
+    <ng-container *ngIf="tasks$ | async as filteredTasks">
+      <div *ngFor="let task of filteredTasks" class="grid-view">
+        <ng-container *ngIf="task.completed">
+          <app-task-tile [task]="task" (selected)="onTaskSelected($event)">
+          </app-task-tile>
+        </ng-container>
+      </div>
+    </ng-container>
+  </mat-tab>
+</mat-tab-group>
+
 <div class="add-task">
   <button
     mat-mini-fab

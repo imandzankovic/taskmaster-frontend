@@ -30,9 +30,15 @@ import { TaskDetails } from './task-details/task-details';
 import { MatTableModule } from '@angular/material/table';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Sidenav } from './sidenav/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
-  declarations: [App, TaskList, TaskTile, TaskForm, TaskDetails],
+  declarations: [App, TaskList, TaskTile, TaskForm, TaskDetails, Sidenav],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -50,6 +56,11 @@ import { CommonModule } from '@angular/common';
     MatTableModule,
     RouterModule,
     CommonModule,
+    MatSidenavModule,
+    MatExpansionModule,
+    MatListModule,
+    MatMenuModule,
+    MatTabsModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

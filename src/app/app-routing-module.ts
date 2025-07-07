@@ -6,6 +6,7 @@ import { TaskList } from './task-list/task-list';
 const routes: Routes = [
   { path: 'task/:id', component: TaskDetails },
   { path: 'home', component: TaskList },
+  { path: 'tasks/all', component: TaskList },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
